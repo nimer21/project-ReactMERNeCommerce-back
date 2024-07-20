@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 require('dotenv').config();
 const connectDB = require('./config/db');
 const router = require('./routes');
+const mongoose = require("mongoose");
 
 const app = express();
 app.use(cors({
@@ -13,6 +14,7 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(cookieParser())
+mongoose.connect('mongodb+srv://nimerelsayed:OrOvgYWGNwjjy2qq@mern.p9qcncz.mongodb.net/MERN-Ecommerce?retryWrites=true&w=majority&appName=MERN');
 
 app.use("/api",router);
 
@@ -20,10 +22,6 @@ app.get("/", (req,res) => {
     res.json("Helo Tiger...");
 })
 
-const PORT = 8000 || process.env.PORT
-connectDB().then(()=>{
-    app.listen(PORT,()=>{
-        console.log(`MongoDB connected successfully`);
-        console.log(`Server is running on port ${PORT}`);
-    });
+
+
 });
