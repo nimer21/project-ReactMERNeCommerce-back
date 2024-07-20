@@ -7,7 +7,7 @@ const router = require('./routes');
 
 const app = express();
 app.use(cors({
-    origin: ["https://project-react-mer-ne-commerce-front.vercel.app"], // this is the front-end URL
+    origin: ["https://mern-ecommerce21.netlify.app"], // this is the front-end URL https://project-react-mer-ne-commerce-front.vercel.app
     method: ["POST","GET"];
     credentials: true, // enable cookies
 }));
